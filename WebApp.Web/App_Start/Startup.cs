@@ -49,16 +49,18 @@ namespace WebApp.Web.App_Start
 			builder.Register(c => HttpContext.Current.GetOwinContext().Authentication).InstancePerRequest();
 			builder.Register(c => app.GetDataProtectionProvider()).InstancePerRequest();
 
-			// Repositories
+			// Register Repositories for API
 			builder.RegisterAssemblyTypes(typeof(PostCategoryRepository).Assembly)
 				.Where(t => t.Name.EndsWith("Repository"))
 				.AsImplementedInterfaces().InstancePerRequest();
 
-			// Services
+			// Register Services for API
 			builder.RegisterAssemblyTypes(typeof(PostCategoryService).Assembly)
 			   .Where(t => t.Name.EndsWith("Service"))
 			   .AsImplementedInterfaces().InstancePerRequest();
-
+			
+			// Register Controller for MVC
+			builder.RegisterControllers(Assembly.GetExecutingAssembly());
 			Autofac.IContainer container = builder.Build();
 			DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
 

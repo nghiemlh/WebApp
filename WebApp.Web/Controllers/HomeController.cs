@@ -13,10 +13,6 @@ namespace WebApp.Web.Controllers
 		private ICommonService _commonService;
 		private IPageService _pageService;
 
-		public HomeController()
-		{
-		}
-
 		public HomeController(IProductCategoryService productCategoryService, IProductService productService, ICommonService commonService, IPageService pageService)
 		{
 			_productCategoryService = productCategoryService;
@@ -33,7 +29,8 @@ namespace WebApp.Web.Controllers
 			homeViewModel.MetaKeyword = "Trang chủ WebApp";
 			homeViewModel.MetaDescription = "Trang chủ WebApp Life";
 
-			//homeViewModel.Pages = Mapper.Map<Page, PageViewModel>(homeModel.pageModel());
+			var pageViewModel = _pageService.GetByAlias("gioi-thieu");
+			homeViewModel.Pages = Mapper.Map<Page, PageViewModel>(pageViewModel);
 
 			return View(homeViewModel);
 			//return Redirect("/Help");

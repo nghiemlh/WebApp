@@ -106,22 +106,22 @@
                 <div class="tittle-style">
                 </div>
                 <p>
-                    Model.Pages.Description
+                    @Model.Pages.Description
                 </p>
             </div>
             <div class="welcome-sub-wthree">
-                <div class="col-md-5 banner_bottom_left">
+                <div class="col-md-6 banner_bottom_left">
                     <h4>
-                        Model.Pages.Name
+                        @Model.Pages.Name
                         <span>WebApp Life</span>
                     </h4>
                     <p>
-                        Model.Pages.Content
+                        @Html.Raw(Model.Pages.Content)
                     </p>
                     <h6 class="w3l-style">NghiemLH</h6>
                 </div>
                 <!-- Stats-->
-                <div class="col-md-7 stats-info-agile">
+                <div class="col-md-6 stats-info-agile">                   
                     <div class="w3l-right-stats">
                         <div class="stats-grid stat-border">
                             <div class='numscroller numscroller-big-bottom' data-slno='1' data-min='0' data-max='768' data-delay='.5' data-increment="1">768</div>
@@ -143,15 +143,6 @@
         </div>
     </div>
     <!-- video section -->
-    <div class="video-w3l" data-vide-bg="/Dist/video/3">
-        <h5>Save Trees, Clean Environment, Healthy Thinking, Happy Life & Green Earth</h5>
-        <a href="#small-dialog4" class="play-icon popup-with-zoom-anim ">
-            <i class="fa fa-play-circle-o" aria-hidden="true"></i>
-        </a>
-        <div id="small-dialog4" class="mfp-hide w3ls_small_dialog wthree_pop">
-            <iframe src="https://player.vimeo.com/video/19251347"></iframe>
-        </div>
-    </div>
     <!-- //video section -->
 }
 <!-- //about -->
