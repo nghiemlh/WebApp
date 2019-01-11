@@ -13,10 +13,6 @@ namespace WebApp.Web.Controllers
 		private ICommonService _commonService;
 		private IPageService _pageService;
 
-		public HomeController()
-		{
-		}
-
 		public HomeController(IProductCategoryService productCategoryService, IProductService productService, ICommonService commonService, IPageService pageService)
 		{
 			_productCategoryService = productCategoryService;
