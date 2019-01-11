@@ -1,0 +1,16 @@
+D:\Worlking\Project\Web\WebApp\WebApp.Model\bin\Release\WebApp.Model.dll.config
+D:\Worlking\Project\Web\WebApp\WebApp.Model\bin\Release\WebApp.Model.dll
+D:\Worlking\Project\Web\WebApp\WebApp.Model\bin\Release\WebApp.Model.pdb
+D:\Worlking\Project\Web\WebApp\WebApp.Model\bin\Release\EntityFramework.dll
+D:\Worlking\Project\Web\WebApp\WebApp.Model\bin\Release\EntityFramework.SqlServer.dll
+D:\Worlking\Project\Web\WebApp\WebApp.Model\bin\Release\Microsoft.AspNet.Identity.Core.dll
+D:\Worlking\Project\Web\WebApp\WebApp.Model\bin\Release\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Worlking\Project\Web\WebApp\WebApp.Model\bin\Release\EntityFramework.xml
+D:\Worlking\Project\Web\WebApp\WebApp.Model\bin\Release\EntityFramework.SqlServer.xml
+D:\Worlking\Project\Web\WebApp\WebApp.Model\bin\Release\Microsoft.AspNet.Identity.Core.xml
+D:\Worlking\Project\Web\WebApp\WebApp.Model\bin\Release\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Worlking\Project\Web\WebApp\WebApp.Model\obj\Release\WebApp.Model.csprojAssemblyReference.cache
+D:\Worlking\Project\Web\WebApp\WebApp.Model\obj\Release\WebApp.Model.csproj.CoreCompileInputs.cache
+D:\Worlking\Project\Web\WebApp\WebApp.Model\obj\Release\WebApp.Model.csproj.CopyComplete
+D:\Worlking\Project\Web\WebApp\WebApp.Model\obj\Release\WebApp.Model.dll
+D:\Worlking\Project\Web\WebApp\WebApp.Model\obj\Release\WebApp.Model.pdb

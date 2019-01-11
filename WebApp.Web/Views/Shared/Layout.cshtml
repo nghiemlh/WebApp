@@ -1,0 +1,229 @@
+﻿<!--
+    Author: W3layouts
+    Author URL: http://w3layouts.com
+    License: Creative Commons Attribution 3.0 Unported
+    License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <title>@ViewBag.Title :: WebApp</title>
+    <meta name="description" content="@ViewBag.Description">
+    <meta name="keywords" content="@ViewBag.MetaKeyword" />
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Green Life web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!--// Meta tag Keywords -->
+    <!-- css files -->
+    <link rel="stylesheet" href="/Dist/css/bootstrap.css">
+    <!-- Bootstrap-css -->
+    <link rel="stylesheet" href="/Dist/css/style.css" type="text/css" media="all" />
+    <!-- Style-css -->
+    <link rel="stylesheet" href="/Dist/css/custom.css">
+    <link rel="stylesheet" href="/Dist/css/font-awesome.css">
+    <!-- Font-Awesome-Icons-css -->
+    <link href="/Dist/css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Popup css (for Video Popup) -->
+    <link rel="stylesheet" href="/Dist/css/lightbox.css" type="text/css" media="all">
+    <!-- Lightbox css (for Projects) -->
+    <link rel="stylesheet" href="/Dist/css/flexslider.css" type="text/css" media="screen" property="" />
+    <!-- Flexslider css (for Testimonials) -->
+    <!-- //css files -->
+    <!-- web-fonts -->
+    <link href="//fonts.googleapis.com/css?family=Economica:400,400i,700,700i&amp;subset=latin-ext" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Rasa:300,400,500,600,700" rel="stylesheet">
+    <!-- //web-fonts -->
+</head>
+
+<body>
+    <!-- Header -->
+    @{ Html.RenderAction("Header", "Home"); }
+    <!-- // Header-->
+    <!-- Render body-->
+    @RenderBody()
+    <!-- // Render body-->
+    <!-- Show About -->
+    @RenderSection("About", required: false)
+    <!-- // Show About -->
+    <!-- Show Service -->
+    @RenderSection("Service", required: false)
+    <!-- // Show Service -->
+    <!-- Show Team -->
+    @RenderSection("Team", required: false)
+    <!-- // Show Team -->
+    <!-- Show Project || Product -->
+    @RenderSection("Product", required: false)
+    <!-- // Show Project || Product -->
+    <!-- Show Customer -->
+    @RenderSection("Customer", required: false)
+    <!-- // Show Customer -->
+    <!-- Show Contact -->
+    @RenderSection("Contact", required: false)
+    <!-- // Show Contact -->
+    <!-- footer -->
+    @{ Html.RenderAction("Footer", "Home"); }
+    <!-- //footer -->
+    <!-- js-scripts -->
+    <!-- jquery -->
+    <script src="/Dist/js/jquery-2.1.4.min.js"></script>
+    <!-- //jquery -->
+    <script src="/Dist/js/bootstrap.js"></script>
+    <!-- Necessary-JavaScript-File-For-Bootstrap -->
+    <!--  light box js -->
+    <script src="/Dist/js/lightbox-plus-jquery.min.js"></script>
+    <!-- //light box js-->
+    <!-- stats numscroller-js-file -->
+    <script src="/Dist/js/numscroller-1.0.js"></script>
+    <!-- //stats numscroller-js-file -->
+    <!-- Baneer-js -->
+    <script src="/Dist/js/responsiveslides.min.js"></script>
+    <script>
+        // You can also use "$(window).load(function() {"
+        $(function () {
+            // Slideshow 4
+            $("#slider4").responsiveSlides({
+                auto: true,
+                pager: true,
+                nav: false,
+                speed: 500,
+                namespace: "callbacks",
+                before: function () {
+                    $('.events').append("<li>before event fired.</li>");
+                },
+                after: function () {
+                    $('.events').append("<li>after event fired.</li>");
+                }
+            });
+
+        });
+    </script>
+    <!-- //Baneer-js -->
+    <!-- navigation -->
+    <script>
+        (function ($) {
+            // Menu Functions
+            $(document).ready(function () {
+                $('#menuToggle').click(function (e) {
+                    var $parent = $(this).parent('.menu');
+                    $parent.toggleClass("open");
+                    var navState = $parent.hasClass('open') ? "hide" : "show";
+                    $(this).attr("title", navState + " navigation");
+                    // Set the timeout to the animation length in the CSS.
+                    setTimeout(function () {
+                        console.log("timeout set");
+                        $('#menuToggle > span').toggleClass("navClosed").toggleClass("navOpen");
+                    }, 200);
+                    e.preventDefault();
+                });
+            });
+        })(jQuery);
+    </script>
+    <!-- //navigation -->
+    <!-- pop-up(for video popup)-->
+    <script src="/Dist/js/jquery.magnific-popup.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.popup-with-zoom-anim').magnificPopup({
+                type: 'inline',
+                fixedContentPos: false,
+                fixedBgPos: true,
+                overflowY: 'auto',
+                closeBtnInside: true,
+                preloader: false,
+                midClick: true,
+                removalDelay: 300,
+                mainClass: 'my-mfp-zoom-in'
+            });
+
+        });
+    </script>
+    <!-- //pop-up-box (syllabus section video)-->
+    <!-- video js (background) -->
+    <script src="/Dist/js/jquery.vide.min.js"></script>
+    <!-- //video js (background) -->
+    <!-- smoothscroll -->
+    <script src="/Dist/js/SmoothScroll.min.js"></script>
+    <!-- //smoothscroll -->
+    <!-- password-script -->
+    <script>
+        window.onload = function () {
+            document.getElementById("password1").onchange = validatePassword;
+            document.getElementById("password2").onchange = validatePassword;
+        }
+
+        function validatePassword() {
+            var pass2 = document.getElementById("password2").value;
+            var pass1 = document.getElementById("password1").value;
+            if (pass1 != pass2)
+                document.getElementById("password2").setCustomValidity("Passwords Don't Match");
+            else
+                document.getElementById("password2").setCustomValidity('');
+            //empty string means no validation error
+        }
+    </script>
+    <!-- //password-script -->
+    <!-- start-smooth-scrolling -->
+    <script src="/Dist/js/move-top.js"></script>
+    <script src="/Dist/js/easing.js"></script>
+    <script>
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 1000);
+            });
+        });
+    </script>
+    <!-- //end-smooth-scrolling -->
+    <!-- smooth scrolling-bottom-to-top -->
+    <script>
+        $(document).ready(function () {
+            /*
+                var defaults = {
+                containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear'
+                };
+            */
+            $().UItoTop({
+                easingType: 'easeOutQuart'
+            });
+        });
+    </script>
+    <a href="#" id="toTop" style="display: block;">
+        <span id="toTopHover" style="opacity: 1;"> </span>
+    </a>
+    <!-- //smooth scrolling-bottom-to-top -->
+    <!-- flexSlider (for testimonials) -->
+    <script defer src="/Dist/js/jquery.flexslider.js"></script>
+    <script>
+        $(window).load(function () {
+            $('.flexslider').flexslider({
+                animation: "slide",
+                start: function (slider) {
+                    $('body').removeClass('loading');
+                }
+            });
+        });
+    </script>
+    <!-- //flexSlider (for testimonials) -->
+    <!-- //js-scripts -->
+
+</body>
+
+</html>

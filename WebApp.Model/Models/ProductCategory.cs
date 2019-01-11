@@ -1,0 +1,38 @@
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using WebApp.Model.Abstract;
+
+namespace WebApp.Model.Models
+{
+	[Table("ProductCategories")]
+	public class ProductCategory : Auditable
+	{
+		[Key]
+		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+		public int Id { set; get; }
+
+		[Required]
+		[MaxLength(256)]
+		public string Name { set; get; }
+
+		[Required]
+		[MaxLength(256)]
+		public string Alias { set; get; }
+
+		[MaxLength(500)]
+		public string Description { set; get; }
+
+		public int? ParentId { set; get; }
+		public int? DisplayOrder { set; get; }
+		public int? HomeOrder { set; get; }
+
+		[MaxLength(256)]
+		public string Image { set; get; }
+
+		public bool? HomeFlag { set; get; }
+		public bool? IsLast { set; get; }
+
+		public virtual IEnumerable<Product> Products { set; get; }
+	}
+}

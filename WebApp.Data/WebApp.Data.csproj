@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C302999C-B65B-44E8-97E6-DA4DE37A97E2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebApp.Data</RootNamespace>
+    <AssemblyName>WebApp.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.2\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Infrastructure\DbFactory.cs" />
+    <Compile Include="Infrastructure\Disposable.cs" />
+    <Compile Include="Infrastructure\IDbFactory.cs" />
+    <Compile Include="Infrastructure\IRepository.cs" />
+    <Compile Include="Infrastructure\IUnitOfWork.cs" />
+    <Compile Include="Infrastructure\RepositoryBase.cs" />
+    <Compile Include="Infrastructure\UnitOfWork.cs" />
+    <Compile Include="Migrations\201810300852499_InitialDB.cs" />
+    <Compile Include="Migrations\201810300852499_InitialDB.Designer.cs">
+      <DependentUpon>201810300852499_InitialDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811050820340_Add user Addmin.cs" />
+    <Compile Include="Migrations\201811050820340_Add user Addmin.Designer.cs">
+      <DependentUpon>201811050820340_Add user Addmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811150236365_Change Gender type bool into string.cs" />
+    <Compile Include="Migrations\201811150236365_Change Gender type bool into string.Designer.cs">
+      <DependentUpon>201811150236365_Change Gender type bool into string.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811220427135_Change name column from ID to Id on all table.cs" />
+    <Compile Include="Migrations\201811220427135_Change name column from ID to Id on all table.Designer.cs">
+      <DependentUpon>201811220427135_Change name column from ID to Id on all table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812010337313_Add column NumOrder, DisplayOrder in Order and OrderDetail.cs" />
+    <Compile Include="Migrations\201812010337313_Add column NumOrder, DisplayOrder in Order and OrderDetail.Designer.cs">
+      <DependentUpon>201812010337313_Add column NumOrder, DisplayOrder in Order and OrderDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812020832587_Add column Amount in OrderDetail table.cs" />
+    <Compile Include="Migrations\201812020832587_Add column Amount in OrderDetail table.Designer.cs">
+      <DependentUpon>201812020832587_Add column Amount in OrderDetail table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812030626524_Add column UpdatedDate, UpdatedBy from Order table.cs" />
+    <Compile Include="Migrations\201812030626524_Add column UpdatedDate, UpdatedBy from Order table.Designer.cs">
+      <DependentUpon>201812030626524_Add column UpdatedDate, UpdatedBy from Order table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812040221284_Add column Id in OrderDetail and set Primary Key for Id.cs" />
+    <Compile Include="Migrations\201812040221284_Add column Id in OrderDetail and set Primary Key for Id.Designer.cs">
+      <DependentUpon>201812040221284_Add column Id in OrderDetail and set Primary Key for Id.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812040331114_Changed type in Order.cs" />
+    <Compile Include="Migrations\201812040331114_Changed type in Order.Designer.cs">
+      <DependentUpon>201812040331114_Changed type in Order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812040401429_Delete column Id  and primary key for DisplayOrder and OrderId in OrderDetail.cs" />
+    <Compile Include="Migrations\201812040401429_Delete column Id  and primary key for DisplayOrder and OrderId in OrderDetail.Designer.cs">
+      <DependentUpon>201812040401429_Delete column Id  and primary key for DisplayOrder and OrderId in OrderDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812050450449_Add column in Announcement.cs" />
+    <Compile Include="Migrations\201812050450449_Add column in Announcement.Designer.cs">
+      <DependentUpon>201812050450449_Add column in Announcement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812060824502_Add column Id on ProductQuantity.cs" />
+    <Compile Include="Migrations\201812060824502_Add column Id on ProductQuantity.Designer.cs">
+      <DependentUpon>201812060824502_Add column Id on ProductQuantity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812060901538_Change default access null in ColorId, SizeId on ProductQuantity.cs" />
+    <Compile Include="Migrations\201812060901538_Change default access null in ColorId, SizeId on ProductQuantity.Designer.cs">
+      <DependentUpon>201812060901538_Change default access null in ColorId, SizeId on ProductQuantity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812100701458_Changed type string to bool in PaymentStatus.cs" />
+    <Compile Include="Migrations\201812100701458_Changed type string to bool in PaymentStatus.Designer.cs">
+      <DependentUpon>201812100701458_Changed type string to bool in PaymentStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901020423217_Add Table Object and Update type.cs" />
+    <Compile Include="Migrations\201901020423217_Add Table Object and Update type.Designer.cs">
+      <DependentUpon>201901020423217_Add Table Object and Update type.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901020634493_Update Lock for table.cs" />
+    <Compile Include="Migrations\201901020634493_Update Lock for table.Designer.cs">
+      <DependentUpon>201901020634493_Update Lock for table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901020716031_Add column IsLast for Category.cs" />
+    <Compile Include="Migrations\201901020716031_Add column IsLast for Category.Designer.cs">
+      <DependentUpon>201901020716031_Add column IsLast for Category.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901020909051_Add column IsLast on Function.cs" />
+    <Compile Include="Migrations\201901020909051_Add column IsLast on Function.Designer.cs">
+      <DependentUpon>201901020909051_Add column IsLast on Function.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901030711501_Add column in Page table.cs" />
+    <Compile Include="Migrations\201901030711501_Add column in Page table.Designer.cs">
+      <DependentUpon>201901030711501_Add column in Page table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AnnouncementRepository.cs" />
+    <Compile Include="Repositories\AnnouncementUserRepository.cs" />
+    <Compile Include="Repositories\ColorRepository.cs" />
+    <Compile Include="Repositories\ContactDetailRepository.cs" />
+    <Compile Include="Repositories\ErrorRepository.cs" />
+    <Compile Include="Repositories\FeedbackRepository.cs" />
+    <Compile Include="Repositories\FooterRepository.cs" />
+    <Compile Include="Repositories\FunctionRepository.cs" />
+    <Compile Include="Repositories\MemberRepository.cs" />
+    <Compile Include="Repositories\MenuRepository.cs" />
+    <Compile Include="Repositories\ObjectCategoryRepository.cs" />
+    <Compile Include="Repositories\ObjectRepository.cs" />
+    <Compile Include="Repositories\OrderDetailRepository.cs" />
+    <Compile Include="Repositories\OrderRepository.cs" />
+    <Compile Include="Repositories\PageRepository.cs" />
+    <Compile Include="Repositories\PermissionRepository.cs" />
+    <Compile Include="Repositories\PostCategoryRepository.cs" />
+    <Compile Include="Repositories\PostRepository.cs" />
+    <Compile Include="Repositories\PostTagRepository.cs" />
+    <Compile Include="Repositories\ProductCategoryRepository.cs" />
+    <Compile Include="Repositories\ProductImageRepository.cs" />
+    <Compile Include="Repositories\ProductQuantityRepository.cs" />
+    <Compile Include="Repositories\ProductRepository.cs" />
+    <Compile Include="Repositories\ProductTagRepository.cs" />
+    <Compile Include="Repositories\SizeRepository.cs" />
+    <Compile Include="Repositories\SlideRepository.cs" />
+    <Compile Include="Repositories\SupportOnlineRepository.cs" />
+    <Compile Include="Repositories\SystemConfigRepository.cs" />
+    <Compile Include="Repositories\TagRepository.cs" />
+    <Compile Include="Repositories\VisitorStatisticRepository.cs" />
+    <Compile Include="WebAppDbContext.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebApp.Common\WebApp.Common.csproj">
+      <Project>{6bab0df0-7d26-4fd2-873c-482ebda842ea}</Project>
+      <Name>WebApp.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebApp.Model\WebApp.Model.csproj">
+      <Project>{a985826c-30a9-42c4-bde2-48e58f14cf50}</Project>
+      <Name>WebApp.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201810300852499_InitialDB.resx">
+      <DependentUpon>201810300852499_InitialDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811050820340_Add user Addmin.resx">
+      <DependentUpon>201811050820340_Add user Addmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811150236365_Change Gender type bool into string.resx">
+      <DependentUpon>201811150236365_Change Gender type bool into string.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811220427135_Change name column from ID to Id on all table.resx">
+      <DependentUpon>201811220427135_Change name column from ID to Id on all table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812010337313_Add column NumOrder, DisplayOrder in Order and OrderDetail.resx">
+      <DependentUpon>201812010337313_Add column NumOrder, DisplayOrder in Order and OrderDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812020832587_Add column Amount in OrderDetail table.resx">
+      <DependentUpon>201812020832587_Add column Amount in OrderDetail table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812030626524_Add column UpdatedDate, UpdatedBy from Order table.resx">
+      <DependentUpon>201812030626524_Add column UpdatedDate, UpdatedBy from Order table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812040221284_Add column Id in OrderDetail and set Primary Key for Id.resx">
+      <DependentUpon>201812040221284_Add column Id in OrderDetail and set Primary Key for Id.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812040331114_Changed type in Order.resx">
+      <DependentUpon>201812040331114_Changed type in Order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812040401429_Delete column Id  and primary key for DisplayOrder and OrderId in OrderDetail.resx">
+      <DependentUpon>201812040401429_Delete column Id  and primary key for DisplayOrder and OrderId in OrderDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812050450449_Add column in Announcement.resx">
+      <DependentUpon>201812050450449_Add column in Announcement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812060824502_Add column Id on ProductQuantity.resx">
+      <DependentUpon>201812060824502_Add column Id on ProductQuantity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812060901538_Change default access null in ColorId, SizeId on ProductQuantity.resx">
+      <DependentUpon>201812060901538_Change default access null in ColorId, SizeId on ProductQuantity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812100701458_Changed type string to bool in PaymentStatus.resx">
+      <DependentUpon>201812100701458_Changed type string to bool in PaymentStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901020423217_Add Table Object and Update type.resx">
+      <DependentUpon>201901020423217_Add Table Object and Update type.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901020634493_Update Lock for table.resx">
+      <DependentUpon>201901020634493_Update Lock for table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901020716031_Add column IsLast for Category.resx">
+      <DependentUpon>201901020716031_Add column IsLast for Category.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901020909051_Add column IsLast on Function.resx">
+      <DependentUpon>201901020909051_Add column IsLast on Function.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901030711501_Add column in Page table.resx">
+      <DependentUpon>201901030711501_Add column in Page table.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
