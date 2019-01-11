@@ -59,7 +59,9 @@ namespace WebApp.Web.App_Start
 			   .Where(t => t.Name.EndsWith("Service"))
 			   .AsImplementedInterfaces().InstancePerRequest();
 
-			Autofac.IContainer container = builder.Build();
+            builder.RegisterControllers(Assembly.GetExecutingAssembly());
+
+            Autofac.IContainer container = builder.Build();
 			DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
 
 			GlobalConfiguration.Configuration.DependencyResolver = new AutofacWebApiDependencyResolver((IContainer)container); //Set the WebApi DependencyResolver

@@ -1,0 +1,16 @@
+packages/
+.vs/
+WebApp.Data/obj/
+WebApp.Data/bin/
+WebApp.Service/obj/
+WebApp.Service/bin/
+WebApp.UnitTest/obj/
+WebApp.UnitTest/bin/
+WebApp.Model/obj/
+WebApp.Model/bin/
+WebApp.Identity/obj/
+WebApp.Identity/bin/
+WebApp.Web/obj/
+WebApp.Web/bin/
+WebApp.Common/obj/
+WebApp.Common/bin/
