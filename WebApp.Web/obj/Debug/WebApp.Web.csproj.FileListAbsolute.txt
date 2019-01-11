@@ -306,7 +306,6 @@ D:\Worlking\Project\Web\WebApp\WebApp.Web\bin\System.Web.Razor.xml
 D:\Worlking\Project\Web\WebApp\WebApp.Web\bin\System.Web.WebPages.xml
 D:\Worlking\Project\Web\WebApp\WebApp.Web\bin\System.Web.WebPages.Deployment.xml
 D:\Worlking\Project\Web\WebApp\WebApp.Web\bin\System.Web.WebPages.Razor.xml
-D:\Worlking\Project\Web\WebApp\WebApp.Web\bin\Newtonsoft.Json.xml
 D:\Worlking\Project\Web\WebApp\WebApp.Web\bin\Antlr3.Runtime.pdb
 D:\Worlking\Project\Web\WebApp\WebApp.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 D:\Worlking\Project\Web\WebApp\WebApp.Web\bin\de\PdfSharp.resources.dll
