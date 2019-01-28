@@ -6,18 +6,19 @@
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
-<!-- banner-text -->
+<!-- slider-text -->
 <div class="slider">
     <div class="callbacks_container">
         <ul class="rslides callbacks callbacks1" id="slider4">
+            @foreach (var slide in Model.Slides.OrderBy(x=>x.DisplayOrder))
+            {
             <li>
-                <div class="w3layouts-banner-top banner">
+                <div class="w3layouts-banner-top" style="background:url(@slide.Image) no-repeat 0px 0px;background-size:cover;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;-ms-background-size:cover;min-height:848px;">
                     <div class="container">
                         <div class="agileits-banner-info">
-                            <h3>Save The World</h3>
+                            <h3>@slide.Name</h3>
                             <p>
-                                Save the trees
-                                <i class="fa fa-tree" aria-hidden="true"></i> they will save you
+                                @slide.Description 
                             </p>
                             <div class="video-pop-wthree">
                                 <a href="#small-dialog1" class="view play-icon popup-with-zoom-anim ">
@@ -27,33 +28,9 @@
                                     <iframe src="https://player.vimeo.com/video/19251347"></iframe>
                                 </div>
                             </div>
-                            <div class="thim-click-to-bottom">
-                                <a href="#about" class="scroll">
-                                    <i class="fa  fa-chevron-down"></i>
-                                </a>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="w3layouts-banner-top banner-2">
-                    <div class="container">
-                        <div class="agileits-banner-info">
-                            <h3>Plant Trees Now</h3>
                             <p>
-                                Save the trees
-                                <i class="fa fa-tree" aria-hidden="true"></i> they will save you
+                                @Html.Raw(slide.Content)
                             </p>
-                            <div class="video-pop-wthree">
-                                <a href="#small-dialog2" class="view play-icon popup-with-zoom-anim ">
-                                    <i class="fa fa-play-circle" aria-hidden="true"></i>Xem Video của chúng tôi
-                                </a>
-                                <div id="small-dialog2" class="mfp-hide w3ls_small_dialog wthree_pop">
-                                    <iframe src="https://player.vimeo.com/video/19251347"></iframe>
-                                </div>
-                            </div>
                             <div class="thim-click-to-bottom">
                                 <a href="#about" class="scroll">
                                     <i class="fa  fa-chevron-down"></i>
@@ -63,38 +40,13 @@
                     </div>
                 </div>
             </li>
-            <li>
-                <div class="w3layouts-banner-top banner-3">
-                    <div class="container">
-                        <div class="agileits-banner-info">
-                            <h3>Save our Planet</h3>
-                            <p>
-                                Save the trees
-                                <i class="fa fa-tree" aria-hidden="true"></i> they will save you
-                            </p>
-                            <div class="video-pop-wthree">
-                                <a href="#small-dialog3" class="view play-icon popup-with-zoom-anim ">
-                                    <i class="fa fa-play-circle" aria-hidden="true"></i>Xem Video của chúng tôi
-                                </a>
-                                <div id="small-dialog3" class="mfp-hide w3ls_small_dialog wthree_pop">
-                                    <iframe src="https://player.vimeo.com/video/19251347"></iframe>
-                                </div>
-                            </div>
-                            <div class="thim-click-to-bottom">
-                                <a href="#about" class="scroll">
-                                    <i class="fa  fa-chevron-down"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
+            }
         </ul>
     </div>
     <div class="clearfix"> </div>
-    <!-- //banner-text -->
+    <!-- //slider-text -->
 </div>
-<!-- //banner -->
+<!-- //slider -->
 <!-- about -->
 @section About {
     <div class="banner-bottom-w3l" id="about">
@@ -121,19 +73,19 @@
                     <h6 class="w3l-style">NghiemLH</h6>
                 </div>
                 <!-- Stats-->
-                <div class="col-md-6 stats-info-agile">                   
+                <div class="col-md-6" style="background: url(@Model.Pages.Image) no-repeat center;background-size: cover;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;-ms-background-size: cover;min-height: 390px;padding:0;-webkit-box-shadow: 0px 3px 5px 0px rgba(10, 10, 10, 0.47);-moz-box-shadow: 0px 3px 5px 0px rgba(10, 10, 10, 0.47);box-shadow: 0px 3px 5px 0px rgba(10, 10, 10, 0.47);">
                     <div class="w3l-right-stats">
                         <div class="stats-grid stat-border">
                             <div class='numscroller numscroller-big-bottom' data-slno='1' data-min='0' data-max='768' data-delay='.5' data-increment="1">768</div>
-                            <p>Khách hàng</p>
+                            <p style="color:white;">Khách hàng</p>
                         </div>
                         <div class="stats-grid">
                             <div class='numscroller numscroller-big-bottom' data-slno='1' data-min='0' data-max='678' data-delay='.5' data-increment="1">678</div>
-                            <p>Yêu thích</p>
+                            <p style="color:white;">Yêu thích</p>
                         </div>
                         <div class="stats-grid stat-border border-st2">
                             <div class='numscroller numscroller-big-bottom' data-slno='1' data-min='0' data-max='800' data-delay='.5' data-increment="1">800</div>
-                            <p>Nhân sự</p>
+                            <p style="color:white;">Nhân sự</p>
                         </div>
                     </div>
                 </div>
@@ -158,75 +110,37 @@
                 </div>
             </div>
             <div class="agileits-services-row">
-                <div class="col-md-4 col-xs-6 agileits-services-grids">
-                    <div class="col-xs-3 wthree-ser">
-                        <i class="fa fa-tint" aria-hidden="true"></i>
+                @foreach (var service in Model.Services.OrderBy(x => x.Name).Take(3))
+                {
+                    <div class="col-md-4 col-xs-6 agileits-services-grids">
+                        <div class="col-xs-3 wthree-ser">
+                            <i class="@service.IconCss" aria-hidden="true"></i>
+                        </div>
+                        <div class="col-xs-9 wthree-heading">
+                            <h4>@service.Name</h4>
+                        </div>
+                        <div class="clearfix"></div>
+                        <p>@service.Description</p>
+                        <a href="#" data-toggle="modal" data-target="#myModal1" class="w3-buttons">Chi tiết</a>
                     </div>
-                    <div class="col-xs-9 wthree-heading">
-                        <h4>Save Water</h4>
-                    </div>
-                    <div class="clearfix"></div>
-                    <p>Itaque earum rerum hic tenetur a sapiente delectus reiciendis maiores alias consequatur aut</p>
-                    <a href="#" data-toggle="modal" data-target="#myModal1" class="w3-buttons">Read More</a>
-                </div>
-                <div class="col-md-4 col-xs-6 agileits-services-grids">
-                    <div class="col-xs-3 wthree-ser">
-                        <i class="fa fa-recycle" aria-hidden="true"></i>
-                    </div>
-                    <div class="col-xs-9 wthree-heading">
-                        <h4>Recycling</h4>
-                    </div>
-                    <div class="clearfix"></div>
-                    <p>Itaque earum rerum hic tenetur a sapiente delectus reiciendis maiores alias consequatur aut</p>
-                    <a href="#" data-toggle="modal" data-target="#myModal1" class="w3-buttons">Read More</a>
-                </div>
-                <div class="col-md-4 col-xs-6 agileits-services-grids">
-                    <div class="col-xs-3 wthree-ser">
-                        <i class="fa fa-tree" aria-hidden="true"></i>
-                    </div>
-                    <div class="col-xs-9 wthree-heading">
-                        <h4>Save Forests</h4>
-                    </div>
-                    <div class="clearfix"></div>
-                    <p>Itaque earum rerum hic tenetur a sapiente delectus reiciendis maiores alias consequatur aut</p>
-                    <a href="#" data-toggle="modal" data-target="#myModal1" class="w3-buttons">Read More</a>
-                </div>
+                }
                 <div class="clearfix"> </div>
             </div>
             <div class="agileits-services-row-2">
-                <div class="col-md-4 col-xs-6 agileits-services-grids">
-                    <div class="col-xs-3 wthree-ser">
-                        <i class="fa fa-envira" aria-hidden="true"></i>
+                @foreach (var service in Model.Services.OrderByDescending(x => x.Name).Take(3))
+                {
+                    <div class="col-md-4 col-xs-6 agileits-services-grids">
+                        <div class="col-xs-3 wthree-ser">
+                            <i class="@service.IconCss" aria-hidden="true"></i>
+                        </div>
+                        <div class="col-xs-9 wthree-heading">
+                            <h4>@service.Name</h4>
+                        </div>
+                        <div class="clearfix"></div>
+                        <p>@service.Description</p>
+                        <a href="#" data-toggle="modal" data-target="#myModal1" class="w3-buttons">Chi tiết</a>
                     </div>
-                    <div class="col-xs-9 wthree-heading">
-                        <h4>Planting</h4>
-                    </div>
-                    <div class="clearfix"></div>
-                    <p>Itaque earum rerum hic tenetur a sapiente delectus reiciendis maiores alias consequatur aut</p>
-                    <a href="#" data-toggle="modal" data-target="#myModal1" class="w3-buttons">Read More</a>
-                </div>
-                <div class="col-md-4 col-xs-6 agileits-services-grids">
-                    <div class="col-xs-3 wthree-ser">
-                        <i class="fa fa-globe" aria-hidden="true"></i>
-                    </div>
-                    <div class="col-xs-9 wthree-heading">
-                        <h4>Awareness</h4>
-                    </div>
-                    <div class="clearfix"></div>
-                    <p>Itaque earum rerum hic tenetur a sapiente delectus reiciendis maiores alias consequatur aut</p>
-                    <a href="#" data-toggle="modal" data-target="#myModal1" class="w3-buttons">Read More</a>
-                </div>
-                <div class="col-md-4 col-xs-6 agileits-services-grids">
-                    <div class="col-xs-3 wthree-ser">
-                        <i class="fa fa-pagelines" aria-hidden="true"></i>
-                    </div>
-                    <div class="col-xs-9 wthree-heading">
-                        <h4>Plantation</h4>
-                    </div>
-                    <div class="clearfix"></div>
-                    <p>Itaque earum rerum hic tenetur a sapiente delectus reiciendis maiores alias consequatur aut</p>
-                    <a href="#" data-toggle="modal" data-target="#myModal1" class="w3-buttons">Read More</a>
-                </div>
+                }
                 <div class="clearfix"> </div>
             </div>
         </div>
@@ -245,106 +159,34 @@
                 </div>
             </div>
             <div class="agileits-team-grids">
-                <div class="col-sm-3 col-xs-6 agileits-team-grid">
-                    <div class="team-info">
-                        <img src="/Dist/images/t1.jpg" alt="">
-                        <div class="team-caption">
-                            <h4>Mark Duncan</h4>
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-facebook"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-rss"></i>
-                                    </a>
-                                </li>
-                            </ul>
+                @foreach (var team in Model.Teams)
+                {
+                    <div class="col-sm-3 col-xs-6 agileits-team-grid">
+                        <div class="team-info">
+                            <img src="@team.Image" alt="">
+                            <div class="team-caption">
+                                <h4>@team.Name</h4>
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-rss"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-3 col-xs-6 agileits-team-grid">
-                    <div class="team-info">
-                        <img src="/Dist/images/t2.jpg" alt="">
-                        <div class="team-caption">
-                            <h4>Cynthia Baker</h4>
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-facebook"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-rss"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3 col-xs-6 agileits-team-grid">
-                    <div class="team-info">
-                        <img src="/Dist/images/t3.jpg" alt="">
-                        <div class="team-caption">
-                            <h4>Peter Wright</h4>
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-facebook"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-rss"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3 col-xs-6 agileits-team-grid">
-                    <div class="team-info">
-                        <img src="/Dist/images/t4.jpg" alt="">
-                        <div class="team-caption">
-                            <h4>Steven Wilson</h4>
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-facebook"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-rss"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                }
                 <div class="clearfix"> </div>
             </div>
         </div>
@@ -422,103 +264,36 @@
             </div>
         </div>
         <div class="gallery-agile-kmsrow">
-            <div class="col-xs-3 gallery-agile-grids">
-                <div class="portfolio-hover">
-                    <a href="/Dist/images/g1.jpg" data-lightbox="example-set" data-title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor magna aliqua.">
-                        <img src="/Dist/images/g1.jpg" class="img-responsive zoom-img" alt="" />
-                        <div class="team-caption">
-                            <h4>Free</h4>
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-facebook"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-eye"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-download"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </a>
+            @foreach (var product in Model.LastestProducts.OrderBy(x => x.Name))
+            {
+                <div class="col-xs-4 gallery-agile-grids">
+                    <div class="portfolio-hover">
+                        <a href="@product.ThumbnailImage" data-lightbox="example-set" data-title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor magna aliqua.">
+                            <img src="@product.ThumbnailImage" class="img-responsive zoom-img" alt="" />
+                            <div class="team-caption">
+                                <h4>@product.Name</h4>
+                            @*<ul>
+        <li>
+            <a href="#">
+                <i class="fa fa-facebook"></i>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa fa-eye"></i>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa fa-download"></i>
+            </a>
+        </li>
+    </ul>*@
+</div>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="col-xs-3 gallery-agile-grids">
-                <div class="portfolio-hover">
-                    <a href="/Dist/images/g2.jpg" data-lightbox="example-set" data-title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor magna aliqua.">
-                        <img src="/Dist/images/g2.jpg" class="img-responsive zoom-img" alt="" />
-                        <div class="team-caption">
-                            <h4>Economist</h4>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-xs-3 gallery-agile-grids">
-                <div class="portfolio-hover">
-                    <a href="/Dist/images/g3.jpg" data-lightbox="example-set" data-title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor magna aliqua.">
-                        <img src="/Dist/images/g3.jpg" class="img-responsive zoom-img" alt="" />
-                        <div class="team-caption">
-                            <h4>Professional</h4>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-xs-3 gallery-agile-grids">
-                <div class="portfolio-hover">
-                    <a href="/Dist/images/g4.jpg" data-lightbox="example-set" data-title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor magna aliqua.">
-                        <img src="/Dist/images/g4.jpg" class="img-responsive zoom-img" alt="" />
-                        <div class="team-caption">
-                            <h4>Community</h4>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-xs-3 gallery-agile-grids">
-                <div class="portfolio-hover">
-                    <a href="/Dist/images/g5.jpg" data-lightbox="example-set" data-title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor magna aliqua.">
-                        <img src="/Dist/images/g5.jpg" class="img-responsive zoom-img" alt="" />
-                        <div class="team-caption">
-                            <h4>Enterprise</h4>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-xs-3 gallery-agile-grids">
-                <div class="portfolio-hover">
-                    <a href="/Dist/images/g6.jpg" data-lightbox="example-set" data-title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor magna aliqua.">
-                        <img src="/Dist/images/g6.jpg" class="img-responsive zoom-img" alt="" />
-                        <div class="team-caption">
-                            <h4>Web Service</h4>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-xs-3 gallery-agile-grids">
-                <div class="portfolio-hover">
-                    <a href="/Dist/images/g7.jpg" data-lightbox="example-set" data-title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor magna aliqua.">
-                        <img src="/Dist/images/g7.jpg" class="img-responsive zoom-img" alt="" />
-                        <div class="team-caption">
-                            <h4>Web Client</h4>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-xs-3 gallery-agile-grids">
-                <div class="portfolio-hover">
-                    <a href="/Dist/images/g8.jpg" data-lightbox="example-set" data-title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor magna aliqua.">
-                        <img src="/Dist/images/g8.jpg" class="img-responsive zoom-img" alt="" />
-                        <div class="team-caption">
-                            <h4>Web Free</h4>
-                        </div>
-                    </a>
-                </div>
-            </div>
+            }
             <div class="clearfix"> </div>
         </div>
     </div>

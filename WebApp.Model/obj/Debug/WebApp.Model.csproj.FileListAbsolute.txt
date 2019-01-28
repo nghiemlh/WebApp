@@ -28,4 +28,3 @@ D:\Worlking\Project\Web\WebApp\WebApp.Model\obj\Debug\WebApp.Model.csproj.CoreCo
 D:\Worlking\Project\Web\WebApp\WebApp.Model\obj\Debug\WebApp.Model.csproj.CopyComplete
 D:\Worlking\Project\Web\WebApp\WebApp.Model\obj\Debug\WebApp.Model.dll
 D:\Worlking\Project\Web\WebApp\WebApp.Model\obj\Debug\WebApp.Model.pdb
-D:\Worlking\Project\Web\WebApp\WebApp.Model\obj\Debug\WebApp.Model.csprojAssemblyReference.cache

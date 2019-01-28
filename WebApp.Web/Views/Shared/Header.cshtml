@@ -1,4 +1,6 @@
-﻿<div class="main-agile" id="ontop">
+﻿@using Microsoft.AspNet.Identity;
+
+<div class="main-agile" id="ontop">
     <!-- banner -->
     <div class="agile-top">
         <div class="col-xs-4 logo">
@@ -11,16 +13,30 @@
         </div>
         <div class="col-xs-6 header-w3l">
             <ul>
-                <li>
-                    <a href="#" data-toggle="modal" data-target="#myModal1">
-                        <span class="fa fa-unlock-alt" aria-hidden="true"></span> Đăng nhập
-                    </a>
-                </li>
-                <li>
-                    <a href="#" data-toggle="modal" data-target="#myModal2">
-                        <span class="fa fa-pencil-square-o" aria-hidden="true"></span> Đăng ký
-                    </a>
-                </li>
+                @using (Html.BeginForm("LogOut", "Account", FormMethod.Post, new { @id = "frmLogout" }))
+                {
+                    if (Request.IsAuthenticated)
+                    {
+                        @Html.AntiForgeryToken()
+                        <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:mr.huynhnghiem@mail.com">mr.huynhnghiem@mail.com</a></li>
+                        <li><i class="fa fa-phone" aria-hidden="true"></i>+84 964 264 324</li>
+                        <li><i class="fa fa-user" aria-hidden="true"></i><a href="#"><span> </span>Xin chào: @User.Identity.GetUserName()</a></li>
+                        <li><i class="fa fa-sign-out" aria-hidden="true"></i><a href="#" id="btnLogout">Thoát</a></li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#frmlogin">
+                                <span class="fa fa-unlock-alt" aria-hidden="true"></span> Đăng nhập
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#frmsignin">
+                                <span class="fa fa-pencil-square-o" aria-hidden="true"></span> Đăng ký
+                            </a>
+                        </li>
+                    }
+                }
             </ul>
         </div>
         <!-- navigation -->
@@ -41,87 +57,9 @@
         <!-- //navigation -->
     </div>
 </div>
-<!-- signin Model -->
-<!-- Modal1 -->
-<div class="modal fade" id="myModal1" tabindex="-1" role="dialog">
-    <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body modal-body-sub_agile">
-                <div class="main-mailposi">
-                    <span class="fa fa-envelope-o" aria-hidden="true"></span>
-                </div>
-                <div class="modal_body_left modal_body_left1">
-                    <h3 class="agileinfo_sign">Đăng nhập </h3>
-                    <p>
-                        Đăng nhập ngay, hãy bắt đầu tìm hiểu thông tin cần thiết cho bạn. Bạn không có tài khoản?
-                        <a href="#" data-toggle="modal" data-target="#myModal2">
-                            Đăng ký ngay!
-                        </a>
-                    </p>
-                    <form action="#" method="post">
-                        <div class="styled-input agile-styled-input-top">
-                            <input type="text" placeholder="Tên đăng nhập" name="Name" required="">
-                        </div>
-                        <div class="styled-input">
-                            <input type="password" placeholder="Mật khẩu" name="password" required="">
-                        </div>
-                        <input type="submit" value="Đăng nhập">
-                    </form>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-        <!-- //Modal content-->
-    </div>
-</div>
-<!-- //Modal1 -->
-<!-- //signin Model -->
+<!-- login Model -->
+@{ Html.RenderAction("Login", "Account"); }
+<!-- //login Model -->
 <!-- signup Model -->
-<!-- Modal2 -->
-<div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
-    <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body modal-body-sub_agile">
-                <div class="main-mailposi">
-                    <span class="fa fa-envelope-o" aria-hidden="true"></span>
-                </div>
-                <div class="modal_body_left modal_body_left1">
-                    <h3 class="agileinfo_sign">Đăng ký</h3>
-                    <p>
-                        Hãy tham gia WebApp Life! Thiết lập tài khoản cho bạn.
-                    </p>
-                    <form action="#" method="post">
-                        <div class="styled-input agile-styled-input-top">
-                            <input type="text" placeholder="Tên đăng nhập" name="Name" required="">
-                        </div>
-                        <div class="styled-input">
-                            <input type="email" placeholder="E-mail" name="Email" required="">
-                        </div>
-                        <div class="styled-input">
-                            <input type="password" placeholder="Mật khẩu" name="password" id="password1" required="">
-                        </div>
-                        <div class="styled-input">
-                            <input type="password" placeholder="Xác nhận mật khẩu" name="Confirm Password" id="password2" required="">
-                        </div>
-                        <input type="submit" value="Đăng ký">
-                    </form>
-                    <p>
-                        <a href="#">Xác nhận đăng ký, Tôi đồng ý với các điều khoản của bạn</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <!-- //Modal content-->
-    </div>
-</div>
-<!-- //Modal2 -->
+@{ Html.RenderAction("Register", "Account"); }
 <!-- //signup Model -->

@@ -71,4 +71,3 @@ D:\Worlking\Project\Web\WebApp\WebApp.Common\obj\Debug\WebApp.Common.csproj.Core
 D:\Worlking\Project\Web\WebApp\WebApp.Common\obj\Debug\WebApp.Common.csproj.CopyComplete
 D:\Worlking\Project\Web\WebApp\WebApp.Common\obj\Debug\WebApp.Common.dll
 D:\Worlking\Project\Web\WebApp\WebApp.Common\obj\Debug\WebApp.Common.pdb
-D:\Worlking\Project\Web\WebApp\WebApp.Common\obj\Debug\WebApp.Common.csprojAssemblyReference.cache

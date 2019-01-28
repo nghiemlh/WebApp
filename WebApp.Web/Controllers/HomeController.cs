@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using WebApp.Model.Models;
 using WebApp.Service;
+using WebApp.Web.App_Start;
 using WebApp.Web.Models;
 
 namespace WebApp.Web.Controllers
@@ -10,14 +12,26 @@ namespace WebApp.Web.Controllers
 	{
 		private IProductCategoryService _productCategoryService;
 		private IProductService _productService;
-		private ICommonService _commonService;
+		private IObjectCategoryService _objectCategoryService;
+		private IObjectService _objectService;
+		private ISlideService _slideService;
 		private IPageService _pageService;
 
-		public HomeController(IProductCategoryService productCategoryService, IProductService productService, ICommonService commonService, IPageService pageService)
+		public HomeController(
+			IProductCategoryService productCategoryService,
+			IProductService productService,
+			ISlideService slideService,
+			IPageService pageService,
+			IObjectService objectService,
+			IObjectCategoryService objectCategoryService,
+			ApplicationUserManager userManager,
+			ApplicationSignInManager signInManager)
 		{
 			_productCategoryService = productCategoryService;
 			_productService = productService;
-			_commonService = commonService;
+			_objectCategoryService = objectCategoryService;
+			_objectService = objectService;
+			_slideService = slideService;
 			_pageService = pageService;
 		}
 
@@ -29,8 +43,25 @@ namespace WebApp.Web.Controllers
 			homeViewModel.MetaKeyword = "Trang chủ WebApp";
 			homeViewModel.MetaDescription = "Trang chủ WebApp Life";
 
+			// Slide
+			var slideViewModel = _slideService.GetAll("");
+			homeViewModel.Slides = Mapper.Map<IEnumerable<Slide>, IEnumerable<SlideViewModel>>(slideViewModel);
+
+			// Page introduction
 			var pageViewModel = _pageService.GetByAlias("gioi-thieu");
 			homeViewModel.Pages = Mapper.Map<Page, PageViewModel>(pageViewModel);
+
+			// Service
+			var serviceViewModel = _productService.GetLastest(6, 39);
+			homeViewModel.Services = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(serviceViewModel);
+
+			// Team
+			var teamViewModel = _objectCategoryService.GetAllByParentId(4);
+			homeViewModel.Teams = Mapper.Map<IEnumerable<ObjectCategory>, IEnumerable<ObjectCategoryViewModel>>(teamViewModel);
+
+			// Product
+			var productViewModel = _productService.GetLastest(8, 41);
+			homeViewModel.LastestProducts = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(productViewModel);
 
 			return View(homeViewModel);
 			//return Redirect("/Help");

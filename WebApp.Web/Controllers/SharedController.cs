@@ -16,15 +16,21 @@ namespace WebApp.Web.Controllers
 	[RoutePrefix("api/shared")]
 	public class SharedController : ApiControllerBase
 	{
+		private IObjectCategoryService _objectCategoryService;
 		private IProductCategoryService _productCategoryService;
 		private IFunctionService _functionService;
+		private IPostCategoryService _postCategoryService;
 
 		public SharedController(IErrorService errorService,
 								IProductCategoryService productCategoryService,
-								IFunctionService functionService) : base(errorService)
+								IFunctionService functionService,
+								IObjectCategoryService objectCategoryService,
+								IPostCategoryService postCategoryService) : base(errorService)
 		{
+			_objectCategoryService = objectCategoryService;
 			_productCategoryService = productCategoryService;
 			_functionService = functionService;
+			_postCategoryService = postCategoryService;
 		}
 
 		[HttpGet]
@@ -63,6 +69,60 @@ namespace WebApp.Web.Controllers
 				var model = _productCategoryService.GetLastParent(filter);
 
 				var responseData = Mapper.Map<IEnumerable<ProductCategory>, IEnumerable<ProductCategoryViewModel>>(model);
+				var response = request.CreateResponse(HttpStatusCode.OK, responseData);
+				return response;
+			});
+		}
+
+		[Route("getallparentobjectcategory")]
+		[HttpGet]
+		public HttpResponseMessage GetAllParentObjectCategory(HttpRequestMessage request, string filter = "")
+		{
+			return CreateHttpResponse(request, () =>
+			{
+				var model = _objectCategoryService.GetAllParent(filter);
+				var responseData = Mapper.Map<IEnumerable<ObjectCategory>, IEnumerable<ObjectCategoryViewModel>>(model);
+				var response = request.CreateResponse(HttpStatusCode.OK, responseData);
+				return response;
+			});
+		}
+
+		[Route("getlastparentobjectcategory")]
+		[HttpGet]
+		public HttpResponseMessage GetLastObjectCategory(HttpRequestMessage request, string filter = "")
+		{
+			return CreateHttpResponse(request, () =>
+			{
+				var model = _objectCategoryService.GetLastParent(filter);
+
+				var responseData = Mapper.Map<IEnumerable<ObjectCategory>, IEnumerable<ObjectCategoryViewModel>>(model);
+				var response = request.CreateResponse(HttpStatusCode.OK, responseData);
+				return response;
+			});
+		}
+
+		[Route("getallparentpostcategory")]
+		[HttpGet]
+		public HttpResponseMessage GetAllParentPostCategory(HttpRequestMessage request, string filter = "")
+		{
+			return CreateHttpResponse(request, () =>
+			{
+				var model = _postCategoryService.GetAllParent(filter);
+				var responseData = Mapper.Map<IEnumerable<PostCategory>, IEnumerable<PostCategoryViewModel>>(model);
+				var response = request.CreateResponse(HttpStatusCode.OK, responseData);
+				return response;
+			});
+		}
+
+		[Route("getlastparentpostcategory")]
+		[HttpGet]
+		public HttpResponseMessage GetLastPostCategory(HttpRequestMessage request, string filter = "")
+		{
+			return CreateHttpResponse(request, () =>
+			{
+				var model = _postCategoryService.GetLastParent(filter);
+
+				var responseData = Mapper.Map<IEnumerable<PostCategory>, IEnumerable<PostCategoryViewModel>>(model);
 				var response = request.CreateResponse(HttpStatusCode.OK, responseData);
 				return response;
 			});

@@ -58,8 +58,7 @@ namespace WebApp.Service
 		public IEnumerable<ProductCategory> GetAll(string keyword)
 		{
 			if (!string.IsNullOrEmpty(keyword))
-				return _productCategoryRepository.GetMulti(x => x.Name.Contains(keyword) || x.Description.Contains(keyword))
-					.OrderBy(x => x.ParentId);
+				return _productCategoryRepository.GetMulti(x => x.Name.Contains(keyword) || x.Description.Contains(keyword)).OrderBy(x => x.ParentId);
 			else
 				return _productCategoryRepository.GetAll().OrderBy(x => x.ParentId);
 		}

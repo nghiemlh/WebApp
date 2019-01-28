@@ -9,6 +9,8 @@ namespace WebApp.Web.Models
 		public string MetaDescription { set; get; }
 
 		public IEnumerable<SlideViewModel> Slides { set; get; }
+		public IEnumerable<ProductViewModel> Services { set; get; }
+		public IEnumerable<ObjectCategoryViewModel> Teams { set; get; }
 		public IEnumerable<ProductViewModel> LastestProducts { set; get; }
 		public IEnumerable<ProductViewModel> TopSaleProducts { set; get; }
 		public PageViewModel Pages { set; get; }

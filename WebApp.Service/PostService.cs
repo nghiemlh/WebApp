@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using WebApp.Data.Infrastructure;
 using WebApp.Data.Repositories;
 using WebApp.Model.Models;
@@ -11,9 +12,11 @@ namespace WebApp.Service
 
 		void Update(Post post);
 
-		void Delete(int id);
+		Post Delete(int id);
 
 		IEnumerable<Post> GetAll();
+
+		IEnumerable<Post> GetAll(string keyword);
 
 		IEnumerable<Post> GetAllPaging(int page, int pageSize, out int totalRow);
 
@@ -23,7 +26,7 @@ namespace WebApp.Service
 
 		IEnumerable<Post> GetAllByTagPaging(string tag, int page, int pageSize, out int totalRow);
 
-		void SaveChanges();
+		void Save();
 	}
 
 	public class PostService : IPostService
@@ -42,14 +45,22 @@ namespace WebApp.Service
 			_postRepository.Add(post);
 		}
 
-		public void Delete(int id)
+		public Post Delete(int id)
 		{
-			_postRepository.Delete(id);
+			return _postRepository.Delete(id);
 		}
 
 		public IEnumerable<Post> GetAll()
 		{
 			return _postRepository.GetAll(new string[] { "PostCategory" });
+		}
+
+		public IEnumerable<Post> GetAll(string keyword)
+		{
+			if (!string.IsNullOrEmpty(keyword))
+				return _postRepository.GetMulti(x => x.Name.Contains(keyword) || x.Description.Contains(keyword)).OrderBy(x => x.CategoryId);
+			else
+				return _postRepository.GetAll().OrderBy(x => x.CategoryId);
 		}
 
 		public IEnumerable<Post> GetAllByCategoryPaging(int categoryId, int page, int pageSize, out int totalRow)
@@ -73,7 +84,7 @@ namespace WebApp.Service
 			return _postRepository.GetSingleById(id);
 		}
 
-		public void SaveChanges()
+		public void Save()
 		{
 			_unitOfWork.Commit();
 		}

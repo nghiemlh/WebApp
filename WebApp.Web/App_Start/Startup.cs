@@ -3,6 +3,7 @@ using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.DataProtection;
 using Owin;
@@ -39,11 +40,11 @@ namespace WebApp.Web.App_Start
 
 			builder.RegisterType<WebAppDbContext>().AsSelf().InstancePerRequest();
 			builder.RegisterType<RoleStore<AppRole>>().As<IRoleStore<AppRole, string>>();
+			
 			//Asp.net Identity
 			builder.RegisterType<ApplicationUserStore>().As<IUserStore<AppUser>>().InstancePerRequest();
 			builder.RegisterType<ApplicationUserManager>().AsSelf().InstancePerRequest();
 			builder.RegisterType<ApplicationSignInManager>().AsSelf().InstancePerRequest();
-
 			builder.RegisterType<ApplicationRoleManager>().AsSelf().InstancePerRequest();
 
 			builder.Register(c => HttpContext.Current.GetOwinContext().Authentication).InstancePerRequest();
@@ -58,8 +59,8 @@ namespace WebApp.Web.App_Start
 			builder.RegisterAssemblyTypes(typeof(PostCategoryService).Assembly)
 			   .Where(t => t.Name.EndsWith("Service"))
 			   .AsImplementedInterfaces().InstancePerRequest();
-			
-			// Register Controller for MVC
+
+			// Register Controller for MVC		
 			builder.RegisterControllers(Assembly.GetExecutingAssembly());
 			Autofac.IContainer container = builder.Build();
 			DependencyResolver.SetResolver(new AutofacDependencyResolver(container));

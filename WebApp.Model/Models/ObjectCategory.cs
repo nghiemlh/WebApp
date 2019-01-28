@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using WebApp.Model.Abstract;
 
@@ -22,6 +23,9 @@ namespace WebApp.Model.Models
 
 		[MaxLength(500)]
 		public string Description { set; get; }
+
+		[MaxLength(256)]
+		public string Image { set; get; }
 
 		public int? ParentId { set; get; }
 		public int? DisplayOrder { set; get; }

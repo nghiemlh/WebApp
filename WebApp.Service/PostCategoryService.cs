@@ -15,6 +15,10 @@ namespace WebApp.Service
 
 		IEnumerable<PostCategory> GetAll();
 
+		IEnumerable<PostCategory> GetAllParent(string keyword);
+
+		IEnumerable<PostCategory> GetLastParent(string keyword);
+
 		IEnumerable<PostCategory> GetAllByParentId(int parentId);
 
 		PostCategory GetById(int id);
@@ -56,6 +60,22 @@ namespace WebApp.Service
 		public IEnumerable<PostCategory> GetAllByParentId(int parentId)
 		{
 			return _postCategoryRepository.GetMulti(x => x.Status && x.ParentId == parentId);
+		}
+
+		public IEnumerable<PostCategory> GetAllParent(string keyword)
+		{
+			if (!string.IsNullOrEmpty(keyword))
+				return _postCategoryRepository.GetMulti(x => x.Status && (x.Name.Contains(keyword) || x.Description.Contains(keyword)) && (x.IsLast == false || x.IsLast == null));
+			else
+				return _postCategoryRepository.GetMulti(x => x.Status && (x.IsLast == false || x.IsLast == null));
+		}
+
+		public IEnumerable<PostCategory> GetLastParent(string keyword)
+		{
+			if (!string.IsNullOrEmpty(keyword))
+				return _postCategoryRepository.GetMulti(x => x.Status && (x.Name.Contains(keyword) || x.Description.Contains(keyword)) && x.IsLast == true);
+			else
+				return _postCategoryRepository.GetMulti(x => x.Status && x.IsLast == true);
 		}
 
 		public PostCategory GetById(int id)

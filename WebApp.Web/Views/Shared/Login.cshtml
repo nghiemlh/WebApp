@@ -1,0 +1,37 @@
+﻿@model WebApp.Web.Models.LoginViewModel
+<!-- Modal1 -->
+<div class="modal fade" id="frmlogin" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body modal-body-sub_agile">
+                <div class="main-mailposi">
+                    <span class="fa fa-envelope-o" aria-hidden="true"></span>
+                </div>
+                <div class="modal_body_left modal_body_left1">
+                    <h3 class="agileinfo_sign">Đăng nhập </h3>
+                    <p>
+                        Đăng nhập ngay, hãy bắt đầu tìm hiểu thông tin cần thiết cho bạn. Bạn không có tài khoản?
+                        <a href="#" data-toggle="modal" data-target="#frmsignin">
+                            Đăng ký ngay!
+                        </a>
+                    </p>
+                    @using (Html.BeginForm("Login", "Account", new { returnUrl = @ViewBag.ReturnUrl }, FormMethod.Post))
+                    {
+                        @Html.ValidationSummary(false, "", new { @class = "error" })
+                        @Html.TextBoxFor(model => model.UserName, new { placeholder = "Tên đăng nhập", type = "text" })
+                        @Html.PasswordFor(model => model.Password, new { placeholder = "Mật khẩu", type = "password" })
+                        <input type="submit" value="Đăng nhập">
+                    }
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <!-- //Modal content-->
+    </div>
+</div>
+<!-- //Modal1 -->

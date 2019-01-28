@@ -10,6 +10,7 @@ namespace WebApp.Web.Models
 		public string Description { set; get; }
 		public int? ParentId { set; get; }
 		public int? DisplayOrder { set; get; }
+		public string Image { set; get; }
 		public bool? IsLast { set; get; }
 		public DateTime? CreatedDate { set; get; }
 		public string CreatedBy { set; get; }

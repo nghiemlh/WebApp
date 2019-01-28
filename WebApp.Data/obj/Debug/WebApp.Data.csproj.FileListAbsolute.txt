@@ -82,3 +82,5 @@ D:\Worlking\Project\Web\WebApp\WebApp.Data\obj\Debug\WebApp.Data.Migrations.Upda
 D:\Worlking\Project\Web\WebApp\WebApp.Data\obj\Debug\WebApp.Data.Migrations.AddcolumnIsLastforCategory.resources
 D:\Worlking\Project\Web\WebApp\WebApp.Data\obj\Debug\WebApp.Data.Migrations.AddcolumnIsLastonFunction.resources
 D:\Worlking\Project\Web\WebApp\WebApp.Data\obj\Debug\WebApp.Data.Migrations.AddcolumninPagetable.resources
+D:\Worlking\Project\Web\WebApp\WebApp.Data\obj\Debug\WebApp.Data.Migrations.AddImageinObjectCategory.resources
+D:\Worlking\Project\Web\WebApp\WebApp.Data\obj\Debug\WebApp.Data.Migrations.Roundback.resources

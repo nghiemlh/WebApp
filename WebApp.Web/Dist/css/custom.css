@@ -15,6 +15,11 @@
     }
 }
 /* //header */
+/* About */
+.banner-bottom-w3l{
+    padding-bottom: 0px;
+}
+/* // About */
 /* customer + projects */
 .gallery-agile.customer {
     margin-top: 70px;

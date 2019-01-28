@@ -319,8 +319,11 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ColorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ObjectCategoryController.cs" />
+    <Compile Include="Controllers\ObjectController.cs" />
     <Compile Include="Controllers\PageController.cs" />
     <Compile Include="Controllers\AnnouncementController.cs" />
     <Compile Include="Controllers\AppRoleController.cs" />
@@ -329,11 +332,13 @@
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\PermissionController.cs" />
     <Compile Include="Controllers\PostCategoryController.cs" />
+    <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\ProductCategoryController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProductImageController.cs" />
     <Compile Include="Controllers\ProductQuantityController.cs" />
     <Compile Include="Controllers\SharedController.cs" />
+    <Compile Include="Controllers\SlideController.cs" />
     <Compile Include="Controllers\SizeController.cs" />
     <Compile Include="Controllers\StatisticController.cs" />
     <Compile Include="Controllers\UploadController.cs" />
@@ -478,6 +483,24 @@
     <Content Include="Templates\product-detail.html" />
     <Content Include="UploadedFiles\Avatars\image001.png" />
     <Content Include="UploadedFiles\Avatars\ms.PNG" />
+    <Content Include="UploadedFiles\Banners\bg4.jpg" />
+    <Content Include="UploadedFiles\Objects\t1.jpg" />
+    <Content Include="UploadedFiles\Products\ducati-1299-panigale.jpg" />
+    <Content Include="UploadedFiles\Products\Ducati-Panigale-V4-2018-700px.jpg" />
+    <Content Include="UploadedFiles\Products\ferrari-458-italia-after.jpg" />
+    <Content Include="UploadedFiles\Products\iphone-6s-plus-128gb-pink.jpg" />
+    <Content Include="UploadedFiles\Products\iphone-6s-plus-64gb.jpg" />
+    <Content Include="UploadedFiles\Products\iphone-7-plus-32-gb.jpg" />
+    <Content Include="UploadedFiles\Products\iphone-8-plus-64-gb-after.jpg" />
+    <Content Include="UploadedFiles\Products\iphone-8-plus-64-gb-body.jpg" />
+    <Content Include="UploadedFiles\Products\iphone-8-plus-64-gb-face.jpg" />
+    <Content Include="UploadedFiles\Products\iphone-8-plus-64-gb.jpg" />
+    <Content Include="UploadedFiles\Products\iphone-xs-max-256gb-sp1.jpg" />
+    <Content Include="UploadedFiles\Products\product1.png" />
+    <Content Include="UploadedFiles\Products\sieu-xe-o-to-ferrari-458-italia.jpg" />
+    <Content Include="UploadedFiles\Slides\1.jpg" />
+    <Content Include="UploadedFiles\Slides\2.jpg" />
+    <Content Include="UploadedFiles\Slides\3.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -492,9 +515,12 @@
     <Content Include="Views\Shared\Layout.cshtml" />
     <Content Include="Views\Shared\Footer.cshtml" />
     <Content Include="Views\Shared\Header.cshtml" />
+    <Content Include="Views\Shared\Login.cshtml" />
+    <Content Include="Views\Shared\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Reports\" />
+    <Folder Include="Views\Account\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

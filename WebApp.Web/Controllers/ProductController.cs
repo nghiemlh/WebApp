@@ -109,7 +109,7 @@ namespace WebApp.Web.Controllers
 
         [Route("add")]
         [HttpPost]
-        public HttpResponseMessage Create(HttpRequestMessage request, ProductViewModel productCategoryVm)
+        public HttpResponseMessage Create(HttpRequestMessage request, ProductViewModel productVm)
         {
             return CreateHttpResponse(request, () =>
             {
@@ -121,7 +121,7 @@ namespace WebApp.Web.Controllers
                 else
                 {
                     var newProduct = new Product();
-                    newProduct.UpdateProduct(productCategoryVm);
+                    newProduct.UpdateProduct(productVm);
                     newProduct.CreatedDate = DateTime.Now;
                     newProduct.CreatedBy = User.Identity.Name;
 
@@ -179,10 +179,10 @@ namespace WebApp.Web.Controllers
                 }
                 else
                 {
-                    var oldProductCategory = _productService.Delete(id);
+                    var oldProduct = _productService.Delete(id);
                     _productService.Save();
 
-                    var responseData = Mapper.Map<Product, ProductViewModel>(oldProductCategory);
+                    var responseData = Mapper.Map<Product, ProductViewModel>(oldProduct);
                     response = request.CreateResponse(HttpStatusCode.Created, responseData);
                 }
 

@@ -12,7 +12,7 @@ using WebApp.Web.Models;
 
 namespace WebApp.Web.Controllers
 {
-    [RoutePrefix("api/postcategory")]
+    [RoutePrefix("api/postCategory")]
     [Authorize]
     public class PostCategoryController : ApiControllerBase
     {
@@ -25,7 +25,8 @@ namespace WebApp.Web.Controllers
         }
 
         [Route("getall")]
-        public HttpResponseMessage Get(HttpRequestMessage request)
+		[HttpGet]
+		public HttpResponseMessage Get(HttpRequestMessage request)
         {
             return CreateHttpResponse(request, () =>
             {
@@ -39,8 +40,26 @@ namespace WebApp.Web.Controllers
             });
         }
 
-        [Route("add")]
-        public HttpResponseMessage Post(HttpRequestMessage request, PostCategoryViewModel postCategoryVm)
+		[Route("detail/{id:int}")]
+		[HttpGet]
+		public HttpResponseMessage GetById(HttpRequestMessage request, int id)
+		{
+			return CreateHttpResponse(request, () =>
+			{
+				var model = _postCategoryService.GetById(id);
+
+				var responseData = Mapper.Map<PostCategory, PostCategoryViewModel>(model);
+
+				var response = request.CreateResponse(HttpStatusCode.OK, responseData);
+
+				return response;
+			});
+		}
+
+		[Route("add")]
+		[HttpPost]
+		[AllowAnonymous]
+		public HttpResponseMessage Create(HttpRequestMessage request, PostCategoryViewModel postCategoryVm)
         {
             return CreateHttpResponse(request, () =>
             {
@@ -66,7 +85,9 @@ namespace WebApp.Web.Controllers
         }
 
         [Route("update")]
-        public HttpResponseMessage Put(HttpRequestMessage request, PostCategoryViewModel postCategoryVm)
+		[HttpPut]
+		[AllowAnonymous]
+		public HttpResponseMessage Update(HttpRequestMessage request, PostCategoryViewModel postCategoryVm)
         {
             return CreateHttpResponse(request, () =>
             {
@@ -91,7 +112,10 @@ namespace WebApp.Web.Controllers
             });
         }
 
-        public HttpResponseMessage Delete(HttpRequestMessage request, int id)
+		[Route("delete")]
+		[HttpDelete]
+		[AllowAnonymous]
+		public HttpResponseMessage Delete(HttpRequestMessage request, int id)
         {
             return CreateHttpResponse(request, () =>
             {

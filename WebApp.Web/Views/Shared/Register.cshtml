@@ -1,0 +1,39 @@
+﻿@model WebApp.Web.Models.RegisterViewModel
+<!-- Modal2 -->
+<div class="modal fade" id="frmsignin" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body modal-body-sub_agile">
+                <div class="main-mailposi">
+                    <span class="fa fa-envelope-o" aria-hidden="true"></span>
+                </div>
+                <div class="modal_body_left modal_body_left1">
+                    <h3 class="agileinfo_sign">Đăng ký</h3>
+                    <p>
+                        Hãy tham gia WebApp Life! Thiết lập tài khoản cho bạn.
+                    </p>
+                    @using (Html.BeginForm("Sign in", "Account", new { returnUrl = @ViewBag.ReturnUrl }, FormMethod.Post))
+                    {
+                        @Html.ValidationSummary(false, "", new { @class = "error" })
+                        @Html.TextBoxFor(model => model.FullName, new { placeholder = "Tên đầy đủ", type = "text" })
+                        @Html.TextBoxFor(model => model.Address, new { placeholder = "Địa chỉ", type = "text" })
+                        @Html.TextBoxFor(model => model.PhoneNumber, new { placeholder = "Số điện thoại", type = "text" })
+                        @Html.TextBoxFor(model => model.Email, new { placeholder = "Email", type = "text" })
+                        @Html.TextBoxFor(model => model.UserName, new { placeholder = "Tên đăng nhập", type = "text" })
+                        @Html.PasswordFor(model => model.Password, new { placeholder = "Mật khẩu", type = "password" })
+                        <input type="submit" value="Đăng ký">
+                    }
+                    <p>
+                        <a href="#">Xác nhận đăng ký, Tôi đồng ý với các điều khoản của bạn</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- //Modal content-->
+    </div>
+</div>
+<!-- //Modal2 -->

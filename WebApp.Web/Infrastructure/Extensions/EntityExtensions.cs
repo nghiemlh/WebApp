@@ -150,7 +150,8 @@ namespace WebApp.Web.Infrastructure.Extensions
 			objectCategory.ParentId = objectCategoryVm.ParentId;
 			objectCategory.DisplayOrder = objectCategoryVm.DisplayOrder;
 			objectCategory.IsLast = objectCategoryVm.IsLast;
-			
+			objectCategory.Image = objectCategoryVm.Image;
+
 			objectCategory.CreatedDate = objectCategoryVm.CreatedDate;
 			objectCategory.CreatedBy = objectCategoryVm.CreatedBy;
 			objectCategory.UpdatedDate = objectCategoryVm.UpdatedDate;
@@ -224,6 +225,23 @@ namespace WebApp.Web.Infrastructure.Extensions
 			size.UpdatedDate = sizeVm.UpdatedDate;
 			size.UpdatedBy = sizeVm.UpdatedBy;
 			size.Status = sizeVm.Status;
+		}
+
+		public static void UpdateSlide(this Slide slide, SlideViewModel slideVm)
+		{
+			slide.Id = slideVm.Id;
+			slide.Name = slideVm.Name;
+			slide.Description = slideVm.Description;
+			slide.Image = slideVm.Image;
+			slide.Url = slideVm.Url;
+			slide.DisplayOrder = slideVm.DisplayOrder;
+			slide.Content = slideVm.Content;
+
+			slide.CreatedDate = slideVm.CreatedDate;
+			slide.CreatedBy = slideVm.CreatedBy;
+			slide.UpdatedDate = slideVm.UpdatedDate;
+			slide.UpdatedBy = slideVm.UpdatedBy;
+			slide.Status = slideVm.Status;
 		}
 
 		public static void UpdateFeedback(this Feedback feedback, FeedbackViewModel feedbackVm)

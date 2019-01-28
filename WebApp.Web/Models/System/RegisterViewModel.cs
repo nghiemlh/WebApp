@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebApp.Web.Models
 {
@@ -19,8 +20,10 @@ namespace WebApp.Web.Models
         public string Email { set; get; }
 
         public string Address { set; get; }
+		public string Gender { set; get; }
+		public DateTime? BirthDay { set; get; }
 
-        [Required(ErrorMessage = "Bạn cần nhập số điện thoại.")]
+		[Required(ErrorMessage = "Bạn cần nhập số điện thoại.")]
         public string PhoneNumber { set; get; }
     }
 }

@@ -21,7 +21,11 @@ namespace WebApp.Service
 
 		IEnumerable<Product> GetLastest(int top);
 
+		IEnumerable<Product> GetLastest(int top, int categoryId);
+
 		IEnumerable<Product> GetHotProduct(int top);
+
+		IEnumerable<Product> GetHotProduct(int top, int categoryId);
 
 		IEnumerable<Product> GetListProductByCategoryIdPaging(int categoryId, int page, int pageSize, string sort, out int totalRow);
 
@@ -158,9 +162,19 @@ namespace WebApp.Service
 			return _productRepository.GetMulti(x => x.Status).OrderByDescending(x => x.CreatedDate).Take(top);
 		}
 
+		public IEnumerable<Product> GetLastest(int top, int categoryId)
+		{
+			return _productRepository.GetMulti(x => x.Status && x.CategoryId == categoryId).OrderByDescending(x => x.CreatedDate).Take(top);
+		}
+
 		public IEnumerable<Product> GetHotProduct(int top)
 		{
 			return _productRepository.GetMulti(x => x.Status && x.HotFlag == true).OrderByDescending(x => x.CreatedDate).Take(top);
+		}
+
+		public IEnumerable<Product> GetHotProduct(int top, int categoryId)
+		{
+			return _productRepository.GetMulti(x => x.Status && x.HotFlag == true && x.CategoryId == categoryId).OrderByDescending(x => x.CreatedDate).Take(top);
 		}
 
 		public IEnumerable<Product> GetListProductByCategoryIdPaging(int categoryId, int page, int pageSize, string sort, out int totalRow)

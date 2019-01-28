@@ -72,9 +72,13 @@ namespace WebApp.Web.Controllers
                             {
                                 directory = "/UploadedFiles/Banners/";
                             }
-							else if (type == "pages")
+							else if (type == "slide")
 							{
-								directory = "/UploadedFiles/Pages/";
+								directory = "/UploadedFiles/Slides/";
+							}
+							else if (type == "object")
+							{
+								directory = "/UploadedFiles/Objects/";
 							}
 							else
                             {

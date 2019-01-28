@@ -24,7 +24,7 @@ namespace WebApp.Model.Models
 
 		public bool? Status { get; set; }
 
-		[MaxLength(6)]
+		[MaxLength(3)]
 		public string Gender { get; set; }
 
 		public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<AppUser> manager, string authenticationType)
